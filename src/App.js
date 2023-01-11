@@ -1,6 +1,7 @@
 import Item from './components/Item';
 import data from './data';
 import { useState } from 'react';
+import './index.css';
 
 function App() {
   // render more rows of data with a click more button
@@ -20,7 +21,6 @@ function App() {
       {data.slice(0, show).map((item) => (
         <Item item={item} />
       ))}
-
       {/* Show more/less items with a click button */}
       {show <= 5 ? (
         <button onClick={showMore}>Show More</button>
