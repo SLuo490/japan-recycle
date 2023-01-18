@@ -1,12 +1,12 @@
 import Item from './components/Item';
 import Navbar from './components/Navbar';
 import data from './data';
-import { useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import './index.css';
 
 function App() {
   // render more rows of data with a click more button
-  const [show, setShow] = useState(4);
+  const [show, setShow] = useState(12);
 
   const showMore = () => {
     setShow(show + 4);
@@ -15,6 +15,15 @@ function App() {
   const showLess = () => {
     setShow(show - 4);
   };
+
+  useEffect(() => {
+    if (show) {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
+  }, [show]);
 
   return (
     <div className='App'>
@@ -26,19 +35,27 @@ function App() {
         ))}
       </div>
       {/* Show more/less items with a click button */}
-      {show <= 5 ? (
-        <div className='mx-20 mt-5'>
-          <button onClick={showMore}>Show More</button>
-        </div>
-      ) : (
-        <div className='mx-20 mt-5'>
+      {show <= 12 ? (
+        <div className='mx-20 my-5'>
           <button
-            className='mr-2 border-b-4 border-indigo-500'
+            className='mr-2 border-none border-2 bg-sky-500 rounded-full text-white px-4 py-2 text-sm font-medium'
             onClick={showMore}
           >
             Show More
           </button>
-          <button className='border-b-4 border-indigo-500' onClick={showLess}>
+        </div>
+      ) : (
+        <div className='mx-20 my-5'>
+          <button
+            className='mr-2 border-none border-2 bg-sky-500 rounded-full text-white px-4 py-2 text-sm font-medium'
+            onClick={showMore}
+          >
+            Show More
+          </button>
+          <button
+            className='border-none border-2 bg-lime-500 rounded-full text-white px-4 py-2 text-sm font-medium'
+            onClick={showLess}
+          >
             Show Less
           </button>
         </div>
