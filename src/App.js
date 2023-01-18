@@ -1,7 +1,7 @@
 import Item from './components/Item';
 import Navbar from './components/Navbar';
 import data from './data';
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './index.css';
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
       </div>
       {/* Show more/less items with a click button */}
       {show <= 12 ? (
-        <div className='mx-20 my-5'>
+        <div className='mx-20 my-5 float-right'>
           <button
             className='mr-2 border-none border-2 bg-sky-500 rounded-full text-white px-4 py-2 text-sm font-medium'
             onClick={showMore}
@@ -45,7 +45,7 @@ function App() {
           </button>
         </div>
       ) : (
-        <div className='mx-20 my-5'>
+        <div className='mx-20 my-5 float-right'>
           <button
             className='mr-2 border-none border-2 bg-sky-500 rounded-full text-white px-4 py-2 text-sm font-medium'
             onClick={showMore}
