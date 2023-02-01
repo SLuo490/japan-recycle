@@ -13,6 +13,15 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  // check for the current page and set the current page to true
+  navigation.forEach((item) => {
+    if (item.href === window.location.pathname) {
+      item.current = true;
+    } else {
+      item.current = false;
+    }
+  });
+
   return (
     <Disclosure as='nav' className='bg-gray-800'>
       {({ open }) => (
