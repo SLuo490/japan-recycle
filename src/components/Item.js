@@ -28,7 +28,7 @@ export default function Item(props) {
     <div
       className={`border w-30 h-36 flex flex-col items-center justify-center ${color()}`}
     >
-      <h1>{props.item.ItemName}</h1>
+      <h1 className='font-medium'>{props.item.ItemName}</h1>
       <p>{props.item.Category}</p>
       <p>{props.item.Notes}</p>
     </div>
