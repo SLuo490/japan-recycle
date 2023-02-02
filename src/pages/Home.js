@@ -2,6 +2,7 @@ import Item from '../components/Item';
 import Navbar from '../components/Navbar';
 import data from '../data';
 import { useState, useEffect } from 'react';
+import '../index.css';
 
 export default function Home() {
   // render more rows of data with a click more button
@@ -28,6 +29,19 @@ export default function Home() {
   return (
     <div className='App'>
       <Navbar />
+
+      {/* search bar */}
+      <div className='mx-10 my-5 flex justify-center'>
+        <form>
+          <input
+            className='border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none'
+            type='search'
+            name='search'
+            placeholder='Search'
+          />
+        </form>
+      </div>
+
       {/* Show 9 items at first */}
       <div className='grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-5 mt-10 mx-10'>
         {data.slice(0, show).map((item) => (
